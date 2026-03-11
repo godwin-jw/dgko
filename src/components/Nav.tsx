@@ -6,6 +6,11 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/biz',       label: 'biz' },
   { href: '/quiz',      label: 'quiz' },
+  { href: '/mektup',    label: 'mektup' },
+  { href: '/evcimen',   label: 'evcimen' },
+  { href: '/derbi',     label: '⚽' },
+  { href: '/hikaye',    label: 'hikaye' },
+  { href: '/liste',     label: 'liste' },
   { href: '/kalp',      label: '♡' },
   { href: '/dogumgunu', label: '16.05' },
   { href: '/bebe',      label: '✦' },
@@ -31,7 +36,7 @@ export default function Nav() {
       }}>
         f.
       </Link>
-      <div style={{ display: 'flex', gap: '2rem' }}>
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
         {links.map(({ href, label }) => (
           <Link key={href} href={href} style={{
             fontSize: '0.6rem',
