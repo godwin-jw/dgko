@@ -307,7 +307,7 @@ export default function DerbiPage() {
             color: 'var(--fg)',
             lineHeight: 1.2,
           }}>
-            sen <span style={{ color: '#e01e26' }}>Galatasaray</span>,<br />
+            <span style={{ color: '#e01e26' }}>Galatasaray</span>,<br />
             ben <span style={{ color: '#003580' }}>Fenerbahçe</span>.<br />
           </h1>
           <p className="fi3" style={{
@@ -347,7 +347,6 @@ export default function DerbiPage() {
         <div className="transfer-wrap fi4">
           <div className="transfer-header">
             <span className="transfer-header-text">⚽ son dakika transfer haberi</span>
-            <span className="transfer-logo">derbi.io</span>
           </div>
           <div className="transfer-body">
             <div className="transfer-rozet">
