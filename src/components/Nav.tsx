@@ -50,24 +50,42 @@ export default function Nav() {
           transition: color 0.2s;
           padding-bottom: 2px;
         }
+
+        /* Hamburger butonu — her arka planda görünür */
         .hamburger-btn {
-          background: none;
-          border: none;
+          background: rgba(26,20,16,0.25);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(245,240,232,0.2);
+          border-radius: 8px;
+          padding: 9px 11px;
           cursor: pointer;
-          padding: 4px;
           display: flex;
           flex-direction: column;
           gap: 5px;
           z-index: 60;
           position: relative;
+          transition: background 0.2s, border-color 0.2s;
         }
+        .hamburger-btn:hover {
+          background: rgba(26,20,16,0.4);
+          border-color: rgba(184,132,58,0.4);
+        }
+        .hamburger-btn.acik {
+          background: var(--bg);
+          border-color: var(--light);
+        }
+
         .hamburger-cizgi {
-          width: 22px;
+          width: 20px;
           height: 1.5px;
-          background: var(--fg);
+          background: #F5F0E8;
           transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.2s, width 0.3s;
           transform-origin: center;
           display: block;
+        }
+        .hamburger-btn.acik .hamburger-cizgi {
+          background: var(--fg);
         }
         .hamburger-btn.acik .hamburger-cizgi:nth-child(1) {
           transform: translateY(6.5px) rotate(45deg);
@@ -79,6 +97,8 @@ export default function Nav() {
         .hamburger-btn.acik .hamburger-cizgi:nth-child(3) {
           transform: translateY(-6.5px) rotate(-45deg);
         }
+
+        /* Mobil menü */
         .mobil-menu {
           position: fixed;
           inset: 0;
@@ -125,9 +145,7 @@ export default function Nav() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        padding: '1.5rem 2.5rem',
-        background: acik ? 'var(--bg)' : 'transparent',
-        transition: 'background 0.3s',
+        padding: '1.2rem 2rem',
       }}>
         <Link href="/" style={{
           fontFamily: "'Cormorant Garamond', serif",
