@@ -21,9 +21,7 @@ export default function KalpPage() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Fill black once
-    ctx.fillStyle = '#1A1410'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
 
     let t = 0
     let scale = 4
@@ -38,15 +36,15 @@ export default function KalpPage() {
       const cx = W / 2
       const cy = H / 2
 
-      // Subtle fade — keeps trails
-      ctx.fillStyle = 'rgba(26,20,16,0.008)'
+      // Subtle fade — trails kalıyor
+      ctx.fillStyle = 'rgba(42,14,14,0.008)'
       ctx.fillRect(0, 0, W, H)
 
-      // Color shifts warm as scale grows
+      // Pembe → bordo renk geçişi
       const progress = (scale - 4) / (maxScale - 4)
-      const r = Math.round(180 + progress * 60)
-      const g = Math.round(100 + progress * 60)
-      const b = Math.round(30 + progress * 20)
+      const r = Math.round(221 - progress * 80)   // 221 → 141
+      const g = Math.round(165 - progress * 120)   // 165 → 45
+      const b = Math.round(182 - progress * 150)   // 182 → 32
       const alpha = 0.85 + progress * 0.15
       ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`
       ctx.lineWidth = 1.2
@@ -65,7 +63,7 @@ export default function KalpPage() {
       }
       ctx.stroke()
 
-      // Full revolution done
+
       if (t >= Math.PI * 2) {
         t = 0
         scale += scaleStep
@@ -82,7 +80,7 @@ export default function KalpPage() {
         if (scale > maxScale) {
           scale = 4
           cycles = 0
-          ctx.fillStyle = 'rgba(26,20,16,0.35)'
+          ctx.fillStyle = 'rgba(42,14,14,0.35)'
           ctx.fillRect(0, 0, W, H)
         }
       }
@@ -101,7 +99,7 @@ export default function KalpPage() {
   return (
     <main style={{
       minHeight: '100vh',
-      background: '#1A1410',
+      background: 'var(--bg)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -110,7 +108,7 @@ export default function KalpPage() {
     }}>
       <Cursor />
 
-      {/* Canvas */}
+
       <canvas
         ref={canvasRef}
         style={{
@@ -121,7 +119,7 @@ export default function KalpPage() {
         }}
       />
 
-      {/* Overlay text */}
+
       <div style={{
         position: 'relative',
         zIndex: 2,
@@ -137,7 +135,7 @@ export default function KalpPage() {
           fontSize: '0.6rem',
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: 'rgba(184,132,58,0.5)',
+          color: 'rgba(221,165,182,0.4)',
         }}>
           x = 16·sin³(t)
         </p>
@@ -151,9 +149,9 @@ export default function KalpPage() {
           maxWidth: '340px',
           lineHeight: 1.6,
           textAlign: 'center',
-          color: msgVisible ? 'rgba(245,240,232,1)' : 'rgba(245,240,232,0)',
+          color: msgVisible ? 'rgba(221,165,182,1)' : 'rgba(221,165,182,0)',
           transition: 'color 1.5s ease',
-          textShadow: '0 0 30px rgba(26,20,16,1), 0 0 60px rgba(26,20,16,1), 0 0 4px rgba(26,20,16,1)',
+          textShadow: '0 0 30px rgba(42,14,14,1), 0 0 60px rgba(42,14,14,1), 0 0 4px rgba(42,14,14,1)',
         }}>
           bir formül bu şekli çiziyor.<br />
           ama seni hissetmek için<br />
@@ -165,9 +163,9 @@ export default function KalpPage() {
           fontSize: '0.55rem',
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          color: hintVisible ? 'rgba(212,165,90,1)' : 'rgba(184,132,58,0)',
+          color: hintVisible ? 'rgba(197,225,240,0.9)' : 'rgba(197,225,240,0)',
           transition: 'color 1s ease',
-          textShadow: '0 0 20px rgba(26,20,16,1), 0 0 40px rgba(26,20,16,1)',
+          textShadow: '0 0 20px rgba(42,14,14,1), 0 0 40px rgba(42,14,14,1)',
         }}>
           sadece senin için çizildi ♡
         </p>

@@ -172,9 +172,9 @@ export default function QuizPage() {
 
                 if (selected !== null) {
                   if (i === q.correct) {
-                    borderColor = '#7BAE7F'; color = '#7BAE7F'; bg = 'rgba(123,174,127,0.08)'
+                    borderColor = '#7BAE7F'; color = '#7BAE7F'; bg = 'rgba(123,174,127,0.1)'
                   } else if (i === selected && i !== q.correct) {
-                    borderColor = '#C47A7A'; color = '#C47A7A'; bg = 'rgba(196,122,122,0.08)'
+                    borderColor = '#6a2c2c'; color = '#6a2c2c'; bg = 'rgba(106,44,44,0.1)'
                   }
                 }
 

@@ -14,7 +14,7 @@ export default function BebePage() {
   return (
     <main style={{
       minHeight: '100vh',
-      background: 'var(--bg2)',
+      background: '#2a0e0e',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -63,7 +63,7 @@ export default function BebePage() {
           fontSize: 'clamp(2.5rem, 6vw, 4rem)',
           lineHeight: 1,
           marginBottom: '2rem',
-          color: '#F5F0E8',
+          color: '#f0d8e0',
           animation: 'fadeUp 0.8s ease both 0.3s',
           opacity: 0,
           animationFillMode: 'forwards',
@@ -76,7 +76,7 @@ export default function BebePage() {
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
           fontSize: '1.05rem',
-          color: '#A09080',
+          color: 'rgba(221,165,182,0.55)',
           lineHeight: 1.9,
           marginBottom: '2.5rem',
           animation: 'fadeUp 0.8s ease both 0.6s',

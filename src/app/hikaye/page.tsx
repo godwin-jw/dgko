@@ -306,7 +306,7 @@ export default function HikayePage() {
 
       <main style={{
         minHeight: '100vh',
-        background: 'var(--bg2)',
+        background: 'var(--bg)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -5,6 +5,7 @@ import Particles from '@/components/Particles'
 
 const timelineItems = [
   {
+    color: 'var(--muted)',
     side: 'left',
     date: 'başlangıç',
     title: 'Shiba Kafe',
@@ -13,6 +14,7 @@ const timelineItems = [
     delay: 0.2,
   },
   {
+    color: 'var(--muted)',
     side: 'right',
     date: 'birkaç gün sonra',
     title: 'ilk mesaj',
@@ -21,6 +23,7 @@ const timelineItems = [
     delay: 0.5,
   },
   {
+    color: 'var(--muted)',
     side: 'left',
     date: 'bir süre sonra',
     title: 'bebe oldu',
@@ -29,6 +32,7 @@ const timelineItems = [
     delay: 0.8,
   },
   {
+    color: 'var(--muted)',
     side: 'right',
     date: 'bugün',
     title: 've devam ediyor',
@@ -43,8 +47,8 @@ export default function BizPage() {
   return (
     <main style={{
       minHeight: '100vh',
-      background: 'var(--bg2)',
-      color: '#F5F0E8',
+      background: 'var(--bg)',
+      color: 'var(--muted)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -56,14 +60,13 @@ export default function BizPage() {
       <Cursor />
       <Particles />
 
-      {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <p style={{
           fontFamily: "'Geist Mono', monospace",
           fontSize: '0.6rem',
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: 'var(--accent)',
+          color: 'var(--accent2)',
           marginBottom: '1rem',
           animation: 'fadeUp 0.8s ease both 0.2s',
           opacity: 0,
@@ -76,7 +79,7 @@ export default function BizPage() {
           fontWeight: 300,
           fontStyle: 'italic',
           fontSize: 'clamp(2.2rem, 5vw, 4rem)',
-          color: '#F5F0E8',
+          color: 'var(--muted)',
           lineHeight: 1.1,
           animation: 'fadeUp 0.8s ease both 0.4s',
           opacity: 0,
@@ -86,7 +89,6 @@ export default function BizPage() {
         </h1>
       </div>
 
-      {/* Timeline */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -94,7 +96,6 @@ export default function BizPage() {
         maxWidth: '540px',
         position: 'relative',
       }}>
-        {/* Vertical line */}
         <div style={{
           position: 'absolute',
           left: '50%',
@@ -106,41 +107,30 @@ export default function BizPage() {
         }} />
 
         {timelineItems.map((item, idx) => (
-          <div
-            key={idx}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 40px 1fr',
-              alignItems: 'center',
-              marginBottom: '2.5rem',
-              opacity: 0,
-              animation: `fadeUp 0.7s ease forwards ${item.delay}s`,
-              animationFillMode: 'forwards',
-            }}
-          >
-            {/* Left content */}
+          <div key={idx} style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 40px 1fr',
+            alignItems: 'center',
+            marginBottom: '2.5rem',
+            opacity: 0,
+            animation: `fadeUp 0.7s ease forwards ${item.delay}s`,
+            animationFillMode: 'forwards',
+          }}>
             <div style={{ textAlign: 'right', paddingRight: '1.5rem' }}>
               {item.side === 'left' && <TimelineContent item={item} />}
             </div>
-
-            {/* Dot */}
             <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-              <div
-                className="tl-dot-wrap"
-                style={{ position: 'relative', cursor: 'pointer' }}
-              >
+              <div className="tl-dot-wrap" style={{ position: 'relative', cursor: 'pointer' }}>
                 <div style={{
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '50%',
+                  width: '10px', height: '10px', borderRadius: '50%',
                   background: item.highlight ? 'var(--accent2)' : 'var(--accent)',
                   boxShadow: item.highlight ? '0 0 8px var(--accent2)' : 'none',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                 }} />
-                <div style={{
+                <div className="tl-tooltip" style={{
                   position: 'absolute',
                   background: 'var(--accent)',
-                  color: 'var(--bg2)',
+                  color: 'var(--muted)',
                   fontSize: '0.6rem',
                   padding: '0.3rem 0.7rem',
                   whiteSpace: 'nowrap',
@@ -152,13 +142,11 @@ export default function BizPage() {
                   opacity: 0,
                   transition: 'opacity 0.2s',
                   fontFamily: "'Geist Mono', monospace",
-                }} className="tl-tooltip">
+                }}>
                   {item.tooltip}
                 </div>
               </div>
             </div>
-
-            {/* Right content */}
             <div style={{ paddingLeft: '1.5rem' }}>
               {item.side === 'right' && <TimelineContent item={item} />}
             </div>
@@ -166,7 +154,6 @@ export default function BizPage() {
         ))}
       </div>
 
-      {/* Signature quote */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -178,11 +165,7 @@ export default function BizPage() {
         animation: 'fadeUp 0.9s ease forwards 1.4s',
         animationFillMode: 'forwards',
       }}>
-        <div style={{
-          flex: 1,
-          height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(184,132,58,0.35), transparent)',
-        }} />
+        <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(106,44,44,0.4), transparent)' }} />
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap' }}>
           <span style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -199,19 +182,14 @@ export default function BizPage() {
             fontSize: '0.5rem',
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            color: 'rgba(184,132,58,0.4)',
+            color: 'rgba(221,165,182,0.4)',
           }}>
             genel olarak &nbsp;—&nbsp; fidan
           </span>
         </div>
-        <div style={{
-          flex: 1,
-          height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(184,132,58,0.35), transparent)',
-        }} />
+        <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(106,44,44,0.4), transparent)' }} />
       </div>
 
-      {/* Tooltip hover styles */}
       <style>{`
         .tl-dot-wrap:hover .tl-tooltip { opacity: 1 !important; }
         .tl-dot-wrap:hover > div:first-child {
@@ -240,7 +218,7 @@ function TimelineContent({ item }: { item: typeof timelineItems[0] }) {
         fontFamily: "'Cormorant Garamond', serif",
         fontStyle: 'italic',
         fontSize: '1.1rem',
-        color: '#F5F0E8',
+        color: 'var(--muted)',
         lineHeight: 1.2,
         marginBottom: '0.3rem',
       }}>
@@ -248,7 +226,7 @@ function TimelineContent({ item }: { item: typeof timelineItems[0] }) {
       </div>
       <div style={{
         fontSize: '0.65rem',
-        color: '#7A6E62',
+        color: 'var(--muted)',
         lineHeight: 1.6,
         whiteSpace: 'pre-line',
         fontFamily: "'Geist Mono', monospace",

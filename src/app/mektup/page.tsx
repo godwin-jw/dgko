@@ -75,7 +75,7 @@ export default function MektupPage() {
         .fi-delay { animation: fadeUp 0.8s ease both 0.3s; opacity: 0; animation-fill-mode: forwards; }
         .spin-slow { animation: spin 8s linear infinite; }
         .zarf-box { transition: transform 0.3s, box-shadow 0.3s; }
-        .zarf-box:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,20,16,0.14) !important; }
+        .zarf-box:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(106,44,44,0.18) !important; }
         .btn-fill { transition: background 0.25s, color 0.25s; }
         .btn-fill:hover { background: var(--fg) !important; color: var(--bg) !important; }
         .btn-muted:hover { color: var(--accent) !important; }
@@ -104,16 +104,17 @@ export default function MektupPage() {
             </p>
 
             <div className="zarf-box" onClick={zarfiAc} style={{
-              width: '200px', height: '140px', background: '#FDFAF5',
+              width: '200px', height: '140px',
+              background: '#f5e6ec',
               border: '1px solid var(--light)', position: 'relative',
-              cursor: 'pointer', boxShadow: '0 4px 24px rgba(26,20,16,0.08)',
+              cursor: 'pointer', boxShadow: '0 4px 24px rgba(106,44,44,0.1)',
             }}>
               <div className={adim === 'aciliyor' ? 'zarf-kapak-acik' : ''} style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '70px',
                 background: 'var(--light)', clipPath: 'polygon(0 0, 100% 0, 50% 60%)',
               }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '50%', height: '100%', background: 'rgba(232,224,208,0.5)', clipPath: 'polygon(0 100%, 100% 50%, 0 0)' }} />
-              <div style={{ position: 'absolute', bottom: 0, right: 0, width: '50%', height: '100%', background: 'rgba(232,224,208,0.5)', clipPath: 'polygon(100% 100%, 0 50%, 100% 0)' }} />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '50%', height: '100%', background: 'rgba(221,165,182,0.25)', clipPath: 'polygon(0 100%, 100% 50%, 0 0)' }} />
+              <div style={{ position: 'absolute', bottom: 0, right: 0, width: '50%', height: '100%', background: 'rgba(221,165,182,0.25)', clipPath: 'polygon(100% 100%, 0 50%, 100% 0)' }} />
               <div style={{
                 position: 'absolute', top: '50%', left: '50%',
                 transform: 'translate(-50%, -50%)',

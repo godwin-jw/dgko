@@ -15,7 +15,7 @@ const BDAY_LINES = [
 ]
 
 function burstConfetti() {
-  const colors = ['#D4A55A', '#B8843A', '#F5F0E8', '#E8C88A', '#C4A882', '#ffffff']
+  const colors = ['#dda5b6', '#6a2c2c', '#c5e1f0', '#e8b8c8', '#f0d8e0', '#ffffff']
   for (let i = 0; i < 100; i++) {
     setTimeout(() => {
       const c = document.createElement('div')
@@ -44,7 +44,6 @@ export default function DogumgunuPage() {
   const [visibleLines, setVisibleLines] = useState<number[]>([])
   const [sigVisible, setSigVisible] = useState(false)
 
-  // Typewrite subtitle
   useEffect(() => {
     const text = '(ve sen bunu görmek için buraya geldin.)'
     let i = 0
@@ -58,10 +57,8 @@ export default function DogumgunuPage() {
     return () => clearTimeout(timeout)
   }, [])
 
-  // Reveal lines one by one
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = []
-
     BDAY_LINES.forEach((line, i) => {
       const t = setTimeout(() => {
         setVisibleLines(prev => [...prev, i])
@@ -69,14 +66,11 @@ export default function DogumgunuPage() {
       }, line.delay)
       timers.push(t)
     })
-
     const sigTimer = setTimeout(() => setSigVisible(true), 9600)
     timers.push(sigTimer)
-
     return () => timers.forEach(clearTimeout)
   }, [])
 
-  // Canvas — starfield
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -99,25 +93,26 @@ export default function DogumgunuPage() {
 
     let frame = 0
 
-    ctx.fillStyle = '#0D0A08'
+    ctx.fillStyle = '#1a0812'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     const draw = () => {
       const W = canvas.width
       const H = canvas.height
 
-      ctx.fillStyle = 'rgba(13,10,8,0.14)'
+      ctx.fillStyle = 'rgba(26,8,18,0.14)'
       ctx.fillRect(0, 0, W, H)
 
       stars.forEach(s => {
         const twinkle = 0.3 + 0.7 * Math.sin(frame * s.speed + s.phase)
         ctx.beginPath()
         ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(212,165,90,${twinkle * 0.65})`
+        // Pembe yıldızlar
+        ctx.fillStyle = `rgba(221,165,182,${twinkle * 0.6})`
         ctx.fill()
       })
 
-      // Gold dust drifting up
+      // Pembe toz partikülleri
       if (frame % 6 === 0) {
         const p = document.createElement('span')
         p.style.cssText = `
@@ -128,7 +123,7 @@ export default function DogumgunuPage() {
           opacity:0;
           animation: floatUp ${1.8 + Math.random()}s ease-out forwards;
           transform: translate(-50%,-50%);
-          color: rgba(212,165,90,${0.25 + Math.random() * 0.5});
+          color: rgba(221,165,182,${0.25 + Math.random() * 0.5});
         `
         p.textContent = ['✦', '·', '∗', '✧', '◦'][Math.floor(Math.random() * 5)]
         document.body.appendChild(p)
@@ -155,22 +150,22 @@ export default function DogumgunuPage() {
       opacity: visible ? 1 : 0,
       transform: visible ? 'translateY(0)' : 'translateY(10px)',
       transition: 'opacity 0.8s ease, transform 0.8s ease',
-      textShadow: '0 0 30px rgba(13,10,8,1), 0 0 15px rgba(13,10,8,1)',
+      textShadow: '0 0 30px rgba(26,8,18,1), 0 0 15px rgba(26,8,18,1)',
       fontSize: cls === 'funny' || cls === 'muted'
         ? 'clamp(0.75rem, 1.4vw, 0.9rem)'
         : 'clamp(0.88rem, 1.7vw, 1.05rem)',
     }
 
-    if (cls === 'accent') return { ...base, color: 'var(--accent2)', fontStyle: 'italic' }
-    if (cls === 'muted')  return { ...base, color: 'rgba(245,240,232,0.4)', letterSpacing: '0.03em' }
-    if (cls === 'funny')  return { ...base, color: 'rgba(245,240,232,0.6)', letterSpacing: '0.04em' }
-    return { ...base, color: 'rgba(245,240,232,0.85)' }
+    if (cls === 'accent') return { ...base, color: 'rgba(197,225,240,0.95)', fontStyle: 'italic' }
+    if (cls === 'muted')  return { ...base, color: 'rgba(221,165,182,0.4)', letterSpacing: '0.03em' }
+    if (cls === 'funny')  return { ...base, color: 'rgba(221,165,182,0.65)', letterSpacing: '0.04em' }
+    return { ...base, color: 'rgba(240,216,224,0.85)' }
   }
 
   return (
     <main style={{
       minHeight: '100vh',
-      background: '#0D0A08',
+      background: '#1a0812',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -200,7 +195,7 @@ export default function DogumgunuPage() {
           fontSize: '0.6rem',
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
-          color: 'rgba(212,165,90,0.5)',
+          color: 'rgba(221,165,182,0.5)',
           marginBottom: '1.4rem',
           animation: 'fadeUp 0.8s ease both 0.5s',
           opacity: 0,
@@ -217,7 +212,7 @@ export default function DogumgunuPage() {
           animation: 'fadeUp 0.8s ease both 1s, candleFlicker 1.8s ease-in-out infinite 2.2s',
           opacity: 0,
           animationFillMode: 'forwards',
-          filter: 'drop-shadow(0 0 10px rgba(212,165,90,0.7))',
+          filter: 'drop-shadow(0 0 10px rgba(221,165,182,0.7))',
         }}>
           🕯️🕯️🕯️
         </div>
@@ -229,7 +224,7 @@ export default function DogumgunuPage() {
           fontSize: 'clamp(2.8rem, 8vw, 6.5rem)',
           lineHeight: 0.88,
           letterSpacing: '-0.02em',
-          color: '#F5F0E8',
+          color: '#f0d8e0',
           marginBottom: '0.5rem',
           animation: 'fadeUp 1s ease both 0.8s',
           opacity: 0,
@@ -237,7 +232,7 @@ export default function DogumgunuPage() {
         }}>
           iyi ki<br />
           doğdun,{' '}
-          <em style={{ fontStyle: 'italic', color: 'var(--accent2)' }}>bebe.</em>
+          <em style={{ fontStyle: 'italic', color: '#c5e1f0' }}>bebe.</em>
         </h1>
 
         {/* Subtitle typewriter */}
@@ -246,7 +241,7 @@ export default function DogumgunuPage() {
           fontStyle: 'italic',
           fontWeight: 300,
           fontSize: 'clamp(0.85rem, 1.8vw, 1.1rem)',
-          color: 'rgba(245,240,232,0.4)',
+          color: 'rgba(240,216,224,0.4)',
           letterSpacing: '0.04em',
           marginBottom: '2rem',
           minHeight: '1.4rem',
@@ -268,9 +263,9 @@ export default function DogumgunuPage() {
           fontFamily: "'Cormorant Garamond', serif",
           fontStyle: 'italic',
           fontSize: '0.95rem',
-          color: sigVisible ? 'rgba(212,165,90,0.9)' : 'rgba(212,165,90,0)',
+          color: sigVisible ? 'rgba(221,165,182,0.9)' : 'rgba(221,165,182,0)',
           transition: 'color 2s ease',
-          textShadow: '0 0 20px rgba(13,10,8,1)',
+          textShadow: '0 0 20px rgba(26,8,18,1)',
         }}>
           — seninle her 16 mayıs, sonsuza kadar ✦
         </p>

@@ -307,7 +307,7 @@ export default function DerbiPage() {
             color: 'var(--fg)',
             lineHeight: 1.2,
           }}>
-            <span style={{ color: '#e01e26' }}>Galatasaray</span>,<br />
+            sen <span style={{ color: '#e01e26' }}>Galatasaray</span>,<br />
             ben <span style={{ color: '#003580' }}>Fenerbahçe</span>.<br />
           </h1>
           <p className="fi3" style={{
@@ -327,7 +327,7 @@ export default function DerbiPage() {
           <div className="skor-row">
             <div>
               <div className="takim-isim fb">Fenerbahçe</div>
-              <div className="takim-label fb">sen</div>
+              <div className="takim-label fb">ben</div>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div className="skor-sayi">∞ - ∞</div>
@@ -335,7 +335,7 @@ export default function DerbiPage() {
             </div>
             <div>
               <div className="takim-isim gs" style={{ textAlign: 'center' }}>Galatasaray</div>
-              <div className="takim-label gs" style={{ textAlign: 'center' }}>ben</div>
+              <div className="takim-label gs" style={{ textAlign: 'center' }}>sen</div>
             </div>
           </div>
           <p className="skor-sonuc">

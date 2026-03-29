@@ -2,13 +2,14 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --bg: #F5F0E8;
-  --bg2: #1A1410;
-  --fg: #1A1410;
-  --accent: #B8843A;
-  --accent2: #D4A55A;
-  --muted: #8C7A68;
-  --light: #E8E0D0;
+  --bg: #dda5b6;
+  --bg2: #c490a2;
+  --fg: #2a0e0e;
+  --accent: #6a2c2c;
+  --accent2: #5a8aaa;
+  --muted: #8a5a62;
+  --light: rgba(106,44,44,0.18);
+  --card: #e8b8c8;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,8 +42,8 @@ html, body {
   100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
 }
 @keyframes candleFlicker {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(212,165,90,0.8)); }
-  50%       { filter: drop-shadow(0 0 18px rgba(212,165,90,1)); }
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(106,44,44,0.8)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(106,44,44,1)); }
 }
 
 .animate-fadeUp    { animation: fadeUp 0.8s ease both; }
